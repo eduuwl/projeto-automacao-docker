@@ -1,0 +1,12 @@
+{
+  "name": "projeto-automacao",
+  "version": "1.0.0",
+  "description": "este projeto configura um ambiente de desenvolvimento utilizando docker-compose com multiplos containers, incuindo uma aplicaçao simples em node.js e um banco de dados PostgreSQL, inclui o desafio extra de uma simulação CI/CD usando o serviço Watchtower para monitoramento e atualização continua dos containers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

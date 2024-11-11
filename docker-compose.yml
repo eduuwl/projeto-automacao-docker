@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: ./app
+    image: minha-aplicacao
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - db
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: senha
+      POSTGRES_DB: minha_base
+    volumes:
+      - db_data:/var/lib/postgresql/db_data
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment: 
+      WATCHTOWER_CLEANUP: "true"
+      WATCHTOWER_POLL_INTERVAL: 30
+
+volumes:
+  db_data:
+      
+
